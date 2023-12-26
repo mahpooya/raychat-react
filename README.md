@@ -1,6 +1,6 @@
-# RayChat Package For React
+# RayChat Package For React (Fork for update dependencies) 
 
-![raychat](https://github.com/MinooTavakoli/raychat-react/blob/main/public/raychat-logo.svg)
+![raychat](https://github.com/mahpooya/raychat-react/blob/main/public/raychat-logo.svg)
 
 [![NPM version][npm-version-image]][npm-url] [![NPM downloads][npm-downloads-size-image]][npm-url] [![NPM downloads][npm-downloads-image]][downloads-url] [![MIT License][license-image]][license-url]
 
@@ -19,14 +19,14 @@ You spend a lot of time and money to direct users to your site, but you easily l
 > Get `token` from [raychat.io](https://raychat.io/signup)
 
 ```bash
-npm i raychat-react
+npm i @mahpooya/raychat-react
 ```
 
 ## USE Raychat Package
 
 ```js
 import React from "react";
-import RayChat from "raychat-react";
+import RayChat from "@mahpooya/raychat-react";
 
 function App() {
   const token = "6d5b4ba5-xxxx-xxxx-xxxx-48498f3fc2a2";
@@ -56,7 +56,7 @@ MIT
 
 [license-image]: http://img.shields.io/npm/l/raychat-react.svg?style=flat
 [license-url]: LICENSE
-[npm-url]: https://npmjs.org/package/raychat-react
+[npm-url]: https://npmjs.org/package/@mahpooya/raychat-react
 [npm-version-image]: http://img.shields.io/npm/v/raychat-react.svg?style=flat
 [npm-downloads-image]: http://img.shields.io/npm/dm/raychat-react.svg?style=flat
 [npm-downloads-size-image]: https://img.shields.io/bundlephobia/minzip/raychat-react.svg?style=flat

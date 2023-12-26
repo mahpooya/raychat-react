@@ -12,6 +12,10 @@
 # production
 /dist
 
+# ideas files
+*.iml
+.idea
+
 # misc
 .DS_Store
 .env.local
