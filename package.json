@@ -1,6 +1,6 @@
 {
   "name": "@mahpooya/raychat-react",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "raychat react js package .The new online chat experience begins here! (Fork for update dependencies)",
   "keywords": [
     "raychat",
@@ -28,9 +28,9 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@testing-library/jest-dom": "^6.1.5",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^14.5.1",
+    "@testing-library/user-event": "^12.1.10",
     "core-js": "^3.33.1",
     "node-sass": "^9.0.0",
     "rimraf": "^5.0.5",
@@ -38,8 +38,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "startssllegacyprovider": "react-scripts --openssl-legacy-provider start",
     "test": "react-scripts test",
-    "sass": "node-sass src/lib/components/styles/main.scss src/App.css -w",
+    "sass": "node-sass src/App.css -w",
     "build": "rimraf dist && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files",
     "eject": "react-scripts eject"
   },

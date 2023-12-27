@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 
 const removeElId = (id) => {
   if (id) {
@@ -13,9 +13,11 @@ const removeElTag = (selector) => {
   }
 };
 
-function RayChat({ rayToken = null , domain=undefined}) {
+function RayChat({ rayToken = null , domain=undefined , debug=false}) {
   const ref = useRef();
-  const raychat = () => {
+  const raychat = useCallback(
+  () => {
+    debug && console.log("raychat finally called");
     let o = rayToken;
     let t = document.createElement("script");
     t.type = "text/javascript";
@@ -36,30 +38,37 @@ function RayChat({ rayToken = null , domain=undefined}) {
     if (ref && ref.current) {
       ref.current.appendChild(t);
     }
-  };
+  },
+  [rayToken, debug, domain],
+  );
   useEffect(() => {
     if (rayToken) {
       let e = document;
       let a = window;
-      if ("complete" === e.readyState) raychat();
-      else {
+      if ("complete" === e.readyState) {
+        debug && console.log("calling raychat readyState=complete");
+        raychat();
+      } else {
+        debug && console.log("listener to calling raychat onload");
         a.attachEvent
           ? a.attachEvent("onload", raychat)
           : a.addEventListener("load", raychat, !1);
       }
     }
+    let refCurrent = ref.current;
     return () => {
+      debug && console.log("cleanup raychat");
       localStorage.removeItem("rayToken");
       removeElTag("#raychatFrame + link");
       removeElTag("#raychatFrame + style");
       removeElId("raychatFrame");
       removeElId("raychat_automessage_preview_container");
       removeElId("raychatBtn");
-      if (ref && ref.current) {
-        ref.current.innerHTML = "";
+      if (refCurrent) {
+        refCurrent.innerHTML = "";
       }
     };
-  }, [rayToken]);
+  }, [rayToken, debug, raychat]);
 
   return <div ref={ref} />;
 }
